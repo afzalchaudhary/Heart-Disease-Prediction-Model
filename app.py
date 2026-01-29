@@ -1,10 +1,13 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os
 
-model = joblib.load(r"C:\\Users\\afzal\\OneDrive\\Desktop\\DataScience\\DataScience\\App\\LogisticRegressio_heart.pkl")
-scaler = joblib.load(r"C:\\Users\\afzal\\OneDrive\\Desktop\\DataScience\\DataScience\\App\\scaler_heart.pkl")
-expected_columns = joblib.load(r"C:\\Users\\afzal\\OneDrive\\Desktop\\DataScience\\DataScience\\App\\columns.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model = joblib.load(os.path.join(BASE_DIR, "LogisticRegressio_heart.pkl"))
+scaler = joblib.load(os.path.join(BASE_DIR, "scaler_heart.pkl"))
+expected_columns = joblib.load(os.path.join(BASE_DIR, "columns.pkl"))
 
 st.title("Heart Issue Prediction")
 st.markdown("Provide The Following Details")
